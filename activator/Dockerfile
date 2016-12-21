@@ -16,6 +16,8 @@ RUN 		cd /opt && \
  		ln -s /opt/activator-dist-${ACTIVATOR_VER} /opt/activator && \
  		rm -f /opt/typesafe-activator-${ACTIVATOR_VER}.zip
  
+ENV             PATH $PATH:/opt/activator/bin
+
 EXPOSE 		9000 8888
 
 RUN             mkdir /app
@@ -23,4 +25,4 @@ RUN             mkdir /app
 WORKDIR         /app
  
 # Define an entry point.
-CMD 		["/opt/activator/bin/activator", "testProd"]
+CMD 		["activator", "testProd"]
