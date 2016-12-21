@@ -1,4 +1,4 @@
-FROM 		pelawler/openjdk-8-jre
+FROM 		docker.io/java:openjdk-8-jdk
 
 ENV 		ACTIVATOR_VER 1.3.12
  
@@ -6,7 +6,9 @@ RUN 		cd /opt && \
                 apt-get -y update && \
                 apt-get -y upgrade && \
 		apt-get -y install unzip && \
-                apt-get -y install wget
+                apt-get -y install wget && \
+		apt-get -y install git
+
 
 RUN 		cd /opt && \
  		wget http://downloads.typesafe.com/typesafe-activator/${ACTIVATOR_VER}/typesafe-activator-${ACTIVATOR_VER}.zip && \
